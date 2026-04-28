@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bobur & Nafisa | To'y Taklifnomasi</title>
+  <meta
+    name="description"
+    content="Bobur va Nafisa uchun premium mobil to'y taklifnomasi."
+  >
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Manrope:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="site-frame">
+    <div class="envelope-screen" id="envelopeScreen">
+      <div class="envelope-screen__backdrop"></div>
+      <button class="envelope" id="envelopeOpen" type="button" aria-label="Open invitation">
+        <span class="envelope__botanical envelope__botanical--left" aria-hidden="true"></span>
+        <span class="envelope__botanical envelope__botanical--right" aria-hidden="true"></span>
+        <span class="envelope__botanical envelope__botanical--top-center" aria-hidden="true"></span>
+        <span class="envelope__botanical envelope__botanical--bottom-left" aria-hidden="true"></span>
+        <span class="envelope__botanical envelope__botanical--bottom-right" aria-hidden="true"></span>
+        <span class="envelope__flower envelope__flower--left" aria-hidden="true"></span>
+        <span class="envelope__flower envelope__flower--center" aria-hidden="true"></span>
+        <span class="envelope__flower envelope__flower--right" aria-hidden="true"></span>
+        <span class="envelope__seal"></span>
+        <span class="envelope__flap"></span>
+        <span class="envelope__letter">
+          <span class="envelope__eyebrow">To'y Taklifnomasi</span>
+          <span class="envelope__names">Bobur &amp; Nafisa</span>
+          <span class="envelope__tap">Ushbu taklifnoma aynan siz uchun</span>
+        </span>
+      </button>
+    </div>
+
+    <audio id="backgroundMusic" loop preload="auto">
+      <source src="Moayad-Aljabal-Floating-in-Reverie.m4a" type="audio/mp4">
+      <source src="moayad aljabal-floating in reverie.mp3" type="audio/mpeg">
+    </audio>
+
+    <button class="music-toggle" id="musicToggle" type="button" aria-pressed="false">
+      <span class="music-toggle__icon" aria-hidden="true"></span>
+      <span class="music-toggle__label">Play Music</span>
+    </button>
+
+    <header class="hero" id="home">
+      <div class="hero-media"></div>
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <p class="eyebrow">To'y Taklifnomasi</p>
+        <h1>Bobur <span>&amp;</span> Nafisa</h1>
+        <p class="hero-date">12-sentabr, 2026 • Toshkent</p>
+        <button class="reveal-button" id="revealInvitation" type="button">
+          Taklifnomani Ko'rish
+        </button>
+        <p class="reveal-hint">Nozik did bilan tayyorlangan bayram sizni kutmoqda</p>
+      </div>
+    </header>
+
+    <main class="invitation invitation--locked" id="invitation">
+      <section class="section intro reveal">
+        <div class="section-heading">
+          <p class="eyebrow">Quvonch Bilan</p>
+          <h2>Sizni nikoh to'yimiz shodiyonasiga chorlaymiz</h2>
+        </div>
+        <div class="card glass-card intro-card">
+          <p>
+            Ota-onalarimiz va yaqinlarimiz bilan birga sizni muhabbat,
+            samimiyat va unutilmas lahzalarga boy eng baxtli kunimizga taklif etamiz.
+          </p>
+        </div>
+      </section>
+
+      <section class="section story reveal" id="story">
+        <div class="section-heading">
+          <p class="eyebrow">Bizning Hikoyamiz</p>
+          <h2>Muhabbat bilan bitilgan go'zal qissa</h2>
+        </div>
+        <div class="story-grid">
+          <article class="card story-card">
+            <img
+              src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80"
+              alt="Kelinning va kuyovning baxtli lahzasi"
+            >
+            <p>
+              Tasodif bilan boshlangan tanishuv qalbimizni bir-biriga bog'ladi
+              va har bir suhbat hayotimizga iliqlik, quvonch hamda ishonch olib kirdi.
+            </p>
+          </article>
+          <article class="card story-card">
+            <img
+              src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=1200&q=80"
+              alt="Romantik sayr"
+            >
+            <p>
+              Birga o'tgan har bir lahza, samimiy kulgular va kelajak haqidagi
+              orzular bizni mana shu go'zal kunga yanada yaqinlashtirdi.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section countdown reveal" id="countdown">
+        <div class="section-heading">
+          <p class="eyebrow">Sanoq</p>
+          <h2>Baxtli kunimizga qadar</h2>
+        </div>
+        <div class="countdown-grid">
+          <div class="card countdown-card">
+            <span id="days">000</span>
+            <small>Kun</small>
+          </div>
+          <div class="card countdown-card">
+            <span id="hours">00</span>
+            <small>Soat</small>
+          </div>
+          <div class="card countdown-card">
+            <span id="minutes">00</span>
+            <small>Daqiqa</small>
+          </div>
+          <div class="card countdown-card">
+            <span id="seconds">00</span>
+            <small>Soniya</small>
+          </div>
+        </div>
+      </section>
+
+      <section class="section schedule reveal" id="schedule">
+        <div class="section-heading">
+          <p class="eyebrow">To'y Kuni</p>
+          <h2>Dastur</h2>
+        </div>
+        <div class="timeline">
+          <article class="card timeline-card">
+            <span class="time">15:00</span>
+            <h3>Nikoh Marosimi</h3>
+            <p>Eng yaqin insonlar davrasida dilbar va samimiy nikoh onlari.</p>
+          </article>
+          <article class="card timeline-card">
+            <span class="time">16:30</span>
+            <h3>Kutib Olish</h3>
+            <p>Mehmonlarni nafis ichimliklar va yoqimli kuylar bilan qarshi olamiz.</p>
+          </article>
+          <article class="card timeline-card">
+            <span class="time">18:00</span>
+            <h3>Tantanali Dasturxon</h3>
+            <p>Nafis taomlar, samimiy tilaklar va yorqin lahzalar sizni kutadi.</p>
+          </article>
+          <article class="card timeline-card">
+            <span class="time">20:00</span>
+            <h3>Bazm</h3>
+            <p>Raqslar, shirinliklar va quvonchga to'la unutilmas oqshom.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section location reveal" id="location">
+        <div class="section-heading">
+          <p class="eyebrow">Manzil</p>
+          <h2>Crystal Garden Hall</h2>
+        </div>
+        <div class="card location-card">
+          <div class="map-wrap">
+            <iframe
+              title="Crystal Garden Hall map"
+              src="https://www.google.com/maps?q=Tashkent%20City%20Mall&z=14&output=embed"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+          <div class="location-copy">
+            <p>Amir Temur shoh ko'chasi, Toshkent, O'zbekiston</p>
+            <a
+              class="inline-button"
+              href="https://maps.google.com/?q=Tashkent%20City%20Mall"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Xaritada Ochish
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section transport reveal" id="transport">
+        <div class="section-heading">
+          <p class="eyebrow">Transport</p>
+          <h2>Borish Ma'lumoti</h2>
+        </div>
+        <div class="info-grid">
+          <article class="card info-card">
+            <div class="icon icon-car" aria-hidden="true"></div>
+            <h3>Shaxsiy Avtomobil</h3>
+            <p>To'yxonaga kirishda mehmonlar uchun qulay avtoturargoh mavjud bo'ladi.</p>
+          </article>
+          <article class="card info-card">
+            <div class="icon icon-shuttle" aria-hidden="true"></div>
+            <h3>Mehmonlar Transporti</h3>
+            <p>Hilton Tashkent City hududidan 14:15 da mehmonlar uchun transfer yo'lga chiqadi.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section dress-code reveal" id="dress-code">
+        <div class="section-heading">
+          <p class="eyebrow">Dress Code</p>
+          <h2>Nafis Rasmiy Libos</h2>
+        </div>
+        <div class="info-grid">
+          <article class="card attire-card">
+            <div class="attire-icon" aria-hidden="true">
+              <span></span>
+            </div>
+            <h3>Ayollar</h3>
+            <p>Yumshoq neytral, ivory, beige yoki pastel ohangdagi nafis uzun yoki midi ko'ylaklar tavsiya etiladi.</p>
+          </article>
+          <article class="card attire-card">
+            <div class="attire-icon attire-icon--suit" aria-hidden="true">
+              <span></span>
+            </div>
+            <h3>Erkaklar</h3>
+            <p>To'q kostyum yoki smoking, ivory, beige yoki oltin rang aksentlari bilan juda mos tushadi.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section rsvp reveal" id="rsvp">
+        <div class="section-heading">
+          <p class="eyebrow">RSVP</p>
+          <h2>Iltimos, 20-avgust 2026 gacha javob bering</h2>
+        </div>
+        <form class="card rsvp-form" id="rsvpForm">
+          <label>
+            To'liq Ism
+            <input type="text" name="name" placeholder="Ism familiyangiz" required>
+          </label>
+          <label>
+            Qatnashish Holati
+            <select name="attendance" required>
+              <option value="">Javobni tanlang</option>
+              <option value="joyfully-attending">Albatta boraman</option>
+              <option value="attending-with-regrets">Faqat marosimda qatnashaman</option>
+              <option value="sending-love">Uzoqdan ezgu tilaklarimni yuboraman</option>
+            </select>
+          </label>
+          <label>
+            Mehmonlar Soni
+            <input type="number" name="guests" min="1" max="4" value="1" required>
+          </label>
+          <label>
+            Taom Afzalligi
+            <select name="food" required>
+              <option value="">Birini tanlang</option>
+              <option value="no-preference">Farqi yo'q</option>
+              <option value="vegetarian">Vegetarian</option>
+              <option value="vegan">Vegan</option>
+              <option value="halal">Halal</option>
+            </select>
+          </label>
+          <label>
+            Kelinkuyovga Tilak
+            <textarea
+              name="message"
+              rows="4"
+              placeholder="Tilak yoki izohingizni yozing"
+            ></textarea>
+          </label>
+          <button class="submit-button" type="submit">Javobni Yuborish</button>
+          <p class="form-response" id="formResponse" aria-live="polite"></p>
+        </form>
+      </section>
+
+      <section class="section gallery reveal" id="gallery">
+        <div class="section-heading">
+          <p class="eyebrow">Galereya</p>
+          <h2>Biz uchun qadrli lahzalar</h2>
+        </div>
+        <div class="gallery-track" id="galleryTrack">
+          <figure class="card gallery-card is-active">
+            <img
+              src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1200&q=80"
+              alt="Baxtli kulgu lahzasi"
+            >
+          </figure>
+          <figure class="card gallery-card">
+            <img
+              src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1200&q=80"
+              alt="Nafis to'y gullari"
+            >
+          </figure>
+          <figure class="card gallery-card">
+            <img
+              src="https://images.unsplash.com/photo-1529636798458-92182e662485?auto=format&fit=crop&w=1200&q=80"
+              alt="Birgalikdagi raqs"
+            >
+          </figure>
+        </div>
+        <div class="gallery-dots" id="galleryDots" aria-label="Gallery navigation"></div>
+      </section>
+
+      <section class="section thanks reveal" id="thanks">
+        <div class="section-heading">
+          <p class="eyebrow">Muhabbat Ila</p>
+          <h2>Bizning baxtimizga sherik bo'lganingiz uchun rahmat</h2>
+        </div>
+        <div class="card thanks-card">
+          <p>
+            Sizning tashrifingiz ushbu kunni biz uchun yanada mazmunli va yorqin qiladi.
+            Siz bilan birga quvonchli xotiralar yaratishni intiqlik bilan kutamiz.
+          </p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
