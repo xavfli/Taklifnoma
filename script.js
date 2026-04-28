@@ -43,6 +43,7 @@ async function playMusic() {
   }
 
   try {
+    backgroundMusic.muted = false;
     backgroundMusic.volume = 1;
     await backgroundMusic.play();
     syncMusicButton(true);
@@ -89,6 +90,8 @@ function openExperience() {
 
 revealButton.addEventListener("click", unlockInvitation);
 envelopeOpen.addEventListener("click", openExperience);
+envelopeOpen.addEventListener("pointerup", openExperience);
+envelopeOpen.addEventListener("touchend", openExperience, { passive: true });
 musicToggle.addEventListener("click", () => {
   if (hasAudioError) {
     return;
@@ -151,6 +154,10 @@ updateCountdown();
 window.setInterval(updateCountdown, 1000);
 
 function setActiveGallery(index) {
+  if (!galleryCards.length || !galleryDots) {
+    return;
+  }
+
   galleryCards.forEach((card, cardIndex) => {
     card.classList.toggle("is-active", cardIndex === index);
   });
@@ -160,24 +167,27 @@ function setActiveGallery(index) {
   });
 }
 
-galleryCards.forEach((_, index) => {
-  const dot = document.createElement("button");
-  dot.type = "button";
-  dot.setAttribute("aria-label", `Show gallery image ${index + 1}`);
-  dot.addEventListener("click", () => {
-    galleryIndex = index;
-    setActiveGallery(galleryIndex);
-  });
-  galleryDots.appendChild(dot);
-});
-
 let galleryIndex = 0;
-setActiveGallery(galleryIndex);
 
-window.setInterval(() => {
-  galleryIndex = (galleryIndex + 1) % galleryCards.length;
+if (galleryCards.length && galleryDots) {
+  galleryCards.forEach((_, index) => {
+    const dot = document.createElement("button");
+    dot.type = "button";
+    dot.setAttribute("aria-label", `Show gallery image ${index + 1}`);
+    dot.addEventListener("click", () => {
+      galleryIndex = index;
+      setActiveGallery(galleryIndex);
+    });
+    galleryDots.appendChild(dot);
+  });
+
   setActiveGallery(galleryIndex);
-}, 3500);
+
+  window.setInterval(() => {
+    galleryIndex = (galleryIndex + 1) % galleryCards.length;
+    setActiveGallery(galleryIndex);
+  }, 3500);
+}
 
 backgroundMusic.addEventListener("play", () => syncMusicButton(true));
 backgroundMusic.addEventListener("pause", () => syncMusicButton(false));
@@ -187,6 +197,16 @@ backgroundMusic.addEventListener("error", () => setAudioError());
 if (!backgroundMusic.querySelector("source")?.getAttribute("src")) {
   setAudioError();
 }
+
+document.addEventListener(
+  "pointerdown",
+  () => {
+    if (!hasAttemptedAutoplay && hasOpenedExperience) {
+      playMusic();
+    }
+  },
+  { passive: true }
+);
 
 rsvpForm.addEventListener("submit", (event) => {
   event.preventDefault();
