@@ -89,6 +89,11 @@ function openExperience() {
 }
 
 revealButton.addEventListener("click", unlockInvitation);
+revealButton.addEventListener("touchend", (event) => {
+  event.preventDefault();
+  unlockInvitation();
+}, { passive: false });
+
 envelopeOpen.addEventListener("click", openExperience);
 envelopeOpen.addEventListener("pointerup", openExperience);
 envelopeOpen.addEventListener("touchend", openExperience, { passive: true });
@@ -103,6 +108,20 @@ musicToggle.addEventListener("click", () => {
     pauseMusic();
   }
 });
+
+musicToggle.addEventListener("touchend", (event) => {
+  event.preventDefault();
+
+  if (hasAudioError) {
+    return;
+  }
+
+  if (backgroundMusic.paused) {
+    playMusic();
+  } else {
+    pauseMusic();
+  }
+}, { passive: false });
 
 window.addEventListener(
   "scroll",

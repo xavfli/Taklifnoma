@@ -61,6 +61,18 @@ input,
 select,
 textarea {
   font: inherit;
+  touch-action: manipulation;
+}
+
+a,
+button,
+[role="button"],
+.submit-button,
+.reveal-button,
+.inline-button,
+.music-toggle,
+.envelope {
+  touch-action: manipulation;
 }
 
 .site-frame {
