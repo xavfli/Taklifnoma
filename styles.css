@@ -999,6 +999,13 @@ button,
   background: rgba(255, 255, 255, 0.78);
 }
 
+.rsvp-honeypot {
+  position: absolute;
+  left: -9999px;
+  opacity: 0;
+  pointer-events: none;
+}
+
 .rsvp-form label {
   display: grid;
   gap: 8px;
@@ -1080,7 +1087,20 @@ button,
   transition: opacity 700ms ease, transform 700ms ease;
 }
 
+.reveal .section-heading,
+.reveal .card {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 700ms ease, transform 700ms ease;
+}
+
 .reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal.is-visible .section-heading,
+.reveal.is-visible .card {
   opacity: 1;
   transform: translateY(0);
 }

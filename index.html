@@ -63,7 +63,7 @@
       <div class="hero-content">
         <p class="eyebrow">To'y Taklifnomasi</p>
         <h1>Bobur <span>&amp;</span> Nafisa</h1>
-        <p class="hero-date">12-sentabr, 2026 • Toshkent</p>
+        <p class="hero-date">14-iyun, 2026 • Hazorasp</p>
         <button class="reveal-button" id="revealInvitation" type="button">
           Taklifnomani Ko'rish
         </button>
@@ -142,22 +142,22 @@
       <section class="section location reveal" id="location">
         <div class="section-heading">
           <p class="eyebrow">Manzil</p>
-          <h2>Crystal Garden Hall</h2>
+          <h2>Bobogujum to'yxonasi</h2>
         </div>
         <div class="card location-card">
           <div class="map-wrap">
             <iframe
-              title="Crystal Garden Hall map"
-              src="https://www.google.com/maps?q=Tashkent%20City%20Mall&z=14&output=embed"
+              title="Bobogujum to'yxonasi map"
+              src="https://www.google.com/maps?q=Hazorosp%20tumani%2C%20Alisher%20navoiy%20ko%27chasi%20338-uy&z=15&output=embed"
               loading="lazy"
               referrerpolicy="no-referrer-when-downgrade"
             ></iframe>
           </div>
           <div class="location-copy">
-            <p>Amir Temur shoh ko'chasi, Toshkent, O'zbekiston</p>
+            <p>Hazorosp tumani, Alisher Navoiy ko'chasi 338-uy</p>
             <a
               class="inline-button"
-              href="https://maps.google.com/?q=Tashkent%20City%20Mall"
+              href="https://maps.app.goo.gl/VBgvgXzCyoZ8uDfy6"
               target="_blank"
               rel="noreferrer"
             >
@@ -189,9 +189,21 @@
       <section class="section rsvp reveal" id="rsvp">
         <div class="section-heading">
           <p class="eyebrow">RSVP</p>
-          <h2>Iltimos, 20-avgust 2026 gacha javob bering</h2>
+          <h2>Ishtirokingizni tasdiqlang</h2>
         </div>
-        <form class="card rsvp-form" id="rsvpForm">
+        <form
+          class="card rsvp-form"
+          id="rsvpForm"
+          name="rsvp"
+          method="POST"
+          data-netlify="true"
+          netlify-honeypot="bot-field"
+        >
+          <input type="hidden" name="form-name" value="rsvp">
+          <input type="hidden" name="subject" value="Yangi RSVP tasdiq">
+          <p class="rsvp-honeypot">
+            <label>Leave this field empty: <input name="bot-field"></label>
+          </p>
           <label>
             To'liq Ism
             <input type="text" name="name" placeholder="Ism familiyangiz" required>
@@ -203,20 +215,6 @@
               <option value="joyfully-attending">Albatta boraman</option>
               <option value="attending-with-regrets">Faqat marosimda qatnashaman</option>
               <option value="sending-love">Uzoqdan ezgu tilaklarimni yuboraman</option>
-            </select>
-          </label>
-          <label>
-            Mehmonlar Soni
-            <input type="number" name="guests" min="1" max="4" value="1" required>
-          </label>
-          <label>
-            Taom Afzalligi
-            <select name="food" required>
-              <option value="">Birini tanlang</option>
-              <option value="no-preference">Farqi yo'q</option>
-              <option value="vegetarian">Vegetarian</option>
-              <option value="vegan">Vegan</option>
-              <option value="halal">Halal</option>
             </select>
           </label>
           <label>

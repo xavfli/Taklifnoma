@@ -1,4 +1,4 @@
-const weddingDate = new Date("2026-09-12T15:00:00+05:00");
+const weddingDate = new Date("2026-06-14T18:00:00+05:00");
 
 const invitation = document.getElementById("invitation");
 const revealButton = document.getElementById("revealInvitation");
@@ -55,6 +55,10 @@ async function playMusic() {
 function pauseMusic() {
   backgroundMusic.pause();
   syncMusicButton(false);
+}
+
+function encodeFormData(data) {
+  return new URLSearchParams(data).toString();
 }
 
 function unlockInvitation() {
@@ -153,6 +157,13 @@ const observer = new IntersectionObserver(
 
 revealItems.forEach((item) => observer.observe(item));
 
+revealItems.forEach((item, sectionIndex) => {
+  const animatedChildren = item.querySelectorAll(".card, .section-heading");
+  animatedChildren.forEach((child, childIndex) => {
+    child.style.transitionDelay = `${Math.min(sectionIndex * 40 + childIndex * 90, 360)}ms`;
+  });
+});
+
 function updateCountdown() {
   const now = new Date();
   const diff = weddingDate - now;
@@ -227,11 +238,13 @@ document.addEventListener(
   { passive: true }
 );
 
-rsvpForm.addEventListener("submit", (event) => {
+rsvpForm.addEventListener("submit", async (event) => {
   event.preventDefault();
   const formData = new FormData(rsvpForm);
   const guestName = formData.get("name");
   const attendance = formData.get("attendance");
+  const shouldNotifyByEmail =
+    attendance === "joyfully-attending" || attendance === "attending-with-regrets";
 
   const messages = {
     "joyfully-attending": `Rahmat, ${guestName}. Siz bilan bu quvonchli kunni nishonlashni intiqlik bilan kutamiz.`,
@@ -239,6 +252,25 @@ rsvpForm.addEventListener("submit", (event) => {
     "sending-love": `Rahmat, ${guestName}. Ezgu tilaklaringiz biz uchun juda qadrlidir.`,
   };
 
-  formResponse.textContent = messages[attendance] || "Javobingiz uchun rahmat.";
+  formResponse.textContent = "Yuborilmoqda...";
+
+  if (shouldNotifyByEmail) {
+    try {
+      await fetch("/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: encodeFormData(formData),
+      });
+      formResponse.textContent = messages[attendance] || "Javobingiz uchun rahmat.";
+    } catch (error) {
+      formResponse.textContent = "Yuborishda xatolik bo'ldi. Iltimos, qayta urinib ko'ring.";
+      return;
+    }
+  } else {
+    formResponse.textContent = messages[attendance] || "Javobingiz uchun rahmat.";
+  }
+
   rsvpForm.reset();
 });
